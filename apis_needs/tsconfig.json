@@ -1,0 +1,42 @@
+{
+   "compilerOptions": {
+      "target": "ES2021",
+      "types": [
+         "node",
+         // "jest"
+      ],
+      "typeRoots": [
+         "node_modules/@types"
+      ],
+      "lib": [
+         "ES2021",
+         "ES2021.String",
+         "es5",
+         "es6",
+         "dom"
+      ],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": false,
+      "noImplicitAny": false,
+      "module": "commonjs",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": false,
+      "rootDirs": [
+         "./src/"
+      ],
+      "noFallthroughCasesInSwitch": true,
+      "outDir": "dist"
+   },
+   "include": [
+      "src/**/*.ts"
+   ],
+   "exclude": [
+      "node_modules"
+   ]
+}
