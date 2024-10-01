@@ -4,32 +4,31 @@ import { CHANNEL_TYPE, CONVERSION_STATUS } from "../constants/conversation.const
 import { Staff } from "./Staff.entity"
 
 export abstract class CustomerInfo {
-    @Column()
-    firstName?: string
-    @Column()
-    email?: string
-    @Column()
-    phoneNumber?: string
-    @Column()
-    userName?: string
-    @Column()
-    lastName?: string
+    firstName: string
+    email: string
+    phoneNumber: string
+    lastName: string
 }
 
 @Entity()
-export class Conversation extends MasterEntity {
+export class Message extends MasterEntity {
     @PrimaryGeneratedColumn()
     id: number
     @Column()
-    title: string
-    @Column({ type: "json", })
-    customerInfo: CustomerInfo
-    @ManyToOne(() => Staff, (staff) => staff.conversations)
-    staff: Staff
+    body: string
+    @Column()
+    sender: string
+    @Column()
+    receiver: string
+
+    conversation_id: number
+    @Column()
+    delete: boolean
+
     @Column({
         type: "enum",
         enum: CHANNEL_TYPE,
-        nullable:false
+        nullable: false
     })
     channelType: CHANNEL_TYPE
     @Column({
@@ -38,8 +37,4 @@ export class Conversation extends MasterEntity {
         default: CONVERSION_STATUS.ACTIVATE
     })
     status: CONVERSION_STATUS
-    @Column()
-    startTime: Date
-    @Column()
-    endTime: Date
 }

@@ -1,4 +1,5 @@
 import { AuthRouters } from "./apis/authentication";
+import { ConversationRoutes } from "./apis/conversation/routes";
 
 export function registerRoutes(app) {
 
@@ -10,8 +11,8 @@ export function registerRoutes(app) {
     app.use("/api/v1/auth", AuthRouters);
 
     /**
-     * Authenticated routes
+     * Conversation Routes
      */
-    // app.use("/api/v1/api", );
+    app.use("/api/v1/conversations", ConversationRoutes);
   
 }

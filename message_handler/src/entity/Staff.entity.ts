@@ -10,17 +10,17 @@ export class Staff extends MasterEntity {
     firstName: string
     @Column()
     lastName: string
-    @Column({nullable:true})
+    @Column({ nullable: true })
     lastSignAt: Date
     @Column()
     email: string
     @OneToMany(() => Conversation, (conversation) => conversation.staff)
     conversations: Conversation[]
-    @Column({nullable:true})
+    @Column({ nullable: true })
     phoneNumber: string
     @Column()
     password: string
-    @Column({default: false})
+    @Column({ default: false })
     isVerify: boolean
     @Column()
     verificationCode: string

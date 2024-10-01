@@ -6,7 +6,12 @@ export enum CHANNEL_TYPE {
 }
 
 export enum CONVERSION_STATUS {
-    CLOSE = 'CLOSE',
-    ACTIVE = 'ACTIVE',
+    CLOSED = 'CLOSED',
+    ACTIVATE = 'ACTIVATE',
     NEED_APPROVAL = 'NEED_APPROVAL',
+}
+
+export enum SENDER_TYPE {
+    STAFF = 'STAFF',
+    CUSTOMER = 'CUSTOMER',
 }

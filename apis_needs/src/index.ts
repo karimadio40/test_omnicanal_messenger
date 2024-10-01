@@ -34,22 +34,12 @@ export class App {
                 await AppDataSource.initialize()
                 console.log("database initialized");
                 httpServer.listen(process.env.API_PORT, () => {
-                    console.log(`Server running on port ${3000}`);
+                    console.log(`Server running on port ${process.env.API_PORT}`);
                 });
             } catch (e) {
                 console.log(`Server initialization failed`);
                 console.error(e);
             }
-
-            // try {
-            //     await AuthenticationRegistration.registerAuthStrategies();
-            //     console.log(`Server initialized Auth Strategies successfully`);
-            // } catch (error) {
-            //     console.log(`Server initialized Auth Strategies failed`);
-            // }
-
-            // SocketIOInstance.initInstance(httpServer);
-            
 
             return app;
 

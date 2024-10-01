@@ -8,6 +8,8 @@ import path from "path";
 import fs from "fs";
 import * as dotenv from 'dotenv';
 import logger from 'morgan';
+import { SocketIOInstance } from "./SocketIO/SocketIOInstance";
+import { MessageController } from "./apis/message/controller/message.controller";
 
 export class App {
 
@@ -28,8 +30,6 @@ export class App {
 
             await App.init(app, httpServer);
 
-            registerRoutes(app);
-
             try {
                 await AppDataSource.initialize()
                 console.log("database initialized");
@@ -41,15 +41,8 @@ export class App {
                 console.error(e);
             }
 
-            // try {
-            //     await AuthenticationRegistration.registerAuthStrategies();
-            //     console.log(`Server initialized Auth Strategies successfully`);
-            // } catch (error) {
-            //     console.log(`Server initialized Auth Strategies failed`);
-            // }
-
-            // SocketIOInstance.initInstance(httpServer);
-            
+            SocketIOInstance.initInstance(httpServer);
+            await MessageController.receiveTelegramMessage()
 
             return app;
 
