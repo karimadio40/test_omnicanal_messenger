@@ -8,6 +8,7 @@ import path from "path";
 import fs from "fs";
 import * as dotenv from 'dotenv';
 import logger from 'morgan';
+import { swaggerDocs } from './swagger';
 
 export class App {
 
@@ -34,6 +35,7 @@ export class App {
                 await AppDataSource.initialize()
                 console.log("database initialized");
                 httpServer.listen(process.env.API_PORT, () => {
+                    swaggerDocs(app, process.env.API_PORT)
                     console.log(`Server running on port ${process.env.API_PORT}`);
                 });
             } catch (e) {
@@ -78,3 +80,4 @@ export class App {
     }
 
 }
+
